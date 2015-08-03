@@ -1,0 +1,108 @@
+﻿@model Dresses4Heaven.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntroDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntroDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersAddress1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersAddress1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersAddress2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersAddress2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersAddress3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersAddress3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNum)
+        </dd>
+        
+            
+        <dt>
+            @Html.DisplayNameFor(model => model.Orders)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Event Title</th>
+                    <th>EventType</th>
+                </tr>
+                @foreach (var item in Model.Orders)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Event.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderType)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
