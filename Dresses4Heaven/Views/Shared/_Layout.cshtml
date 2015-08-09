@@ -32,11 +32,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Blank 1", "Index", "Blank1")</li>
+                    <!--<li>@Html.ActionLink("Blank 1", "Index", "Blank1")</li>
                     <li>@Html.ActionLink("Blank 2", "Index", "Blank2")</li>
-                    <li>@Html.ActionLink("Blank 3", "Index", "Blank3")</li>
+                    <li>@Html.ActionLink("Blank 3", "Index", "Blank3")</li>-->
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -47,7 +47,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Dresses4Heaven</p>
+            <p>&copy; @DateTime.Now.Year - Ludite Technologies</p>
         </footer>
     </div>
 
