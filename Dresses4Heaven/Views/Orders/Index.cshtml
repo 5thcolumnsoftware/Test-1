@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Dresses4Heaven.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeadlineDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepositAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Depositpaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmntDue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaidInFull)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeadlineDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepositAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Depositpaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmntDue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaidInFull)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>

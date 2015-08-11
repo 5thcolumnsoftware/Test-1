@@ -1,5 +1,7 @@
 ﻿@model Dresses4Heaven.Models.Customer
-
+<!--
+using Dresses4Heaven.Models.Order
+    -->
 @{
     ViewBag.Title = "Details";
 }
@@ -92,6 +94,12 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.OrderType)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "OrderEdit") |
+                            @*@Html.ActionLink("Details", "OrderDetails", new { OrderID = item.OrderID }) |*@
+                            @Html.ActionLink("Details", "About") |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
                         </td>
                     </tr>
                 }
