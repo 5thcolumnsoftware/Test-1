@@ -55,43 +55,6 @@ namespace Dresses4Heaven.DAL
             }
 
             
-            var Events = new List<Event>
-            {
-            new Event{EventID=1050,Title="John's Christning",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=4022,Title="Marie's Wedding",EventAddress1="kljh",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=4041,Title="Abigail's Birthday",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=1045,Title="Colaiste Ita Debs",EventAddress1="twe",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=3141,Title="Sean's Wedding",EventAddress1="gfds",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=2021,Title="Colaiste Mhuire Debs",EventAddress1="mnv",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=2042,Title="Mary's Wedding",EventAddress1="bvc",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")}
-            };
-            Events.ForEach(s => context.Events.Add(s));
-            //context.SaveChanges();
-
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception exception = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}:{1}",
-                            validationErrors.Entry.Entity.ToString(),
-                            validationError.ErrorMessage);
-
-                        //create a new exception inserting the current one
-                        //as the InnerException
-                        exception = new InvalidOperationException(message, exception);
-                    }
-                }
-                throw exception;
-            }
-            
-
             var Orders = new List<Order>
             {
             new Order{CustomerID=1,EventID=1050,OrderType=OrderType.A,OrderDate=DateTime.Parse("2005-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
@@ -132,8 +95,45 @@ namespace Dresses4Heaven.DAL
                 }
                 throw exception;
             }
+
+            var Events = new List<Event>
+            {
+            new Event{EventID=1050,Title="John's Christning",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{EventID=4022,Title="Marie's Wedding",EventAddress1="kljh",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{EventID=4041,Title="Abigail's Birthday",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{EventID=1045,Title="Colaiste Ita Debs",EventAddress1="twe",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{EventID=3141,Title="Sean's Wedding",EventAddress1="gfds",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{EventID=2021,Title="Colaiste Mhuire Debs",EventAddress1="mnv",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{EventID=2042,Title="Mary's Wedding",EventAddress1="bvc",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")}
+            };
+            Events.ForEach(s => context.Events.Add(s));
+            //context.SaveChanges();
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception exception = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+
+                        //create a new exception inserting the current one
+                        //as the InnerException
+                        exception = new InvalidOperationException(message, exception);
+                    }
+                }
+                throw exception;
+            }
             
-            
+
+
             var staffList = new List<Staff>
             {
                 new Staff{ID=1001,FirstName="Justin",LastName="Time",HireDate=DateTime.Parse("2005-09-01"),PersAddress1="28 NewTemp Street",PersAddress2="Temp Area",PersAddress3="Temp Town",AccessLevel=AccessLevel.A},

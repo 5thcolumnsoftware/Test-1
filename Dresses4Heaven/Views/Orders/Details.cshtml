@@ -1,0 +1,114 @@
+﻿@model Dresses4Heaven.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeadlineDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeadlineDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositAmt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepositAmt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Depositpaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Depositpaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmntDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmntDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaidInFull)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaidInFull)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
