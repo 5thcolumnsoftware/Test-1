@@ -23,9 +23,14 @@ namespace Dresses4Heaven
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                            "~/Content/bootstrap.css",
+                            "~/Content/bootstrap-theme.css",
+                            "~/Content/site.css",
+                            "~/Content/bootstrap-responsive.css"));
+
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
             "~/Scripts/jquery-ui-{version}.js"));

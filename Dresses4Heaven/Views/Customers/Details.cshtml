@@ -90,7 +90,7 @@ using Dresses4Heaven.Models.Order
 
 
     </dl>
-    <div class="col-lg-1">
+    <div class="col-lg-12">
         <h3>@Html.DisplayNameFor(model => model.Orders)</h3>
         <table class="table">
             <tr>
@@ -111,24 +111,66 @@ using Dresses4Heaven.Models.Order
                             @Html.ActionLink("Details", "OrderDetails", new { OrderID = item.OrderID }) |
                             @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })*@
 
-                        <div data-role="main" class="ui-content">
-                            <div id="accordion">
-                                <h1>Click me - I'm collapsible!</h1>
-                                <p>I'm the expanded content 1.</p>
-                                <p>I'm the expanded content 2.</p>
-                                <p>I'm the expanded content 3.</p>
+
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseOne">
+                                            Click me to exapand. Click me again to collapse.Section 1
+                                        </a>
+                                    </h4>
+                                </div>
+
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                        vice lomo.
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--Test end of div-->
+
+                            <!--
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseTwo">
+                                            Click me to exapand. Click me again to collapse.Section 2
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                        vice lomo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseThree">
+                                            Click me to exapand. Click me again to collapse.Section 3
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                        vice lomo.
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <script type="text/javascript">
-                            window.onload = function () {
-                                $("#accordion").accordion({
-                                    autoHeight: 'false',
-                                    heightStyle: 'content',
-                                    collapsible: true,
-                                    active: false
-                                });
-                            }
-                        </script>
+
+                        -->
 
                     </td>
                 </tr>
@@ -257,6 +299,7 @@ using Dresses4Heaven.Models.Order
     </div>-->
 </div> <!-- end of container-->
 <p>
-      @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+     @Html.ActionLink("Back to List", "Index")
+</p>
 </p>
