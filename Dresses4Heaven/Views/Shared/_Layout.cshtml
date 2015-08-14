@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Dresses4Heaven</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @*@Scripts.Render("~/bundles/jqueryui")*@
+
+    
 
     <script type="text/javascript">
         var appInsights=window.appInsights||function(config){
@@ -43,6 +48,30 @@
             </div>
         </div>
     </div>
+
+    <!--http://stackoverflow.com/questions/20081328/how-to-add-jqueryui-library-in-mvc-5-project-->
+    <!--visual studio 2013 mvc include jquery collapsible-->
+    <div data-role="main" class="ui-content">
+        <div id="accordion">
+            <h1>Click me - I'm collapsible!</h1>
+            <p>I'm the expanded content 1.</p>
+            <p>I'm the expanded content 2.</p>
+            <p>I'm the expanded content 3.</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            $("#accordion").accordion({
+                autoHeight: 'false',
+                heightStyle: 'content',
+                collapsible: true,
+                active: false
+            });
+        }
+    </script>
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -52,6 +81,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
