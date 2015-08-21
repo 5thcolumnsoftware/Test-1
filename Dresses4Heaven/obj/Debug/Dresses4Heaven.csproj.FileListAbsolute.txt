@@ -132,3 +132,5 @@ K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\Microsoft.Owin.Security.Microso
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\obj\Debug\Dresses4Heaven.csprojResolveAssemblyReference.cache
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\obj\Debug\Dresses4Heaven.dll
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\obj\Debug\Dresses4Heaven.pdb
+K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\SendGrid.SmtpApi.dll
+K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\SendGridMail.dll

@@ -16,6 +16,7 @@ namespace Dresses4Heaven.Controllers
         private DressesContext db = new DressesContext();
 
         // GET: Customers
+        //[Authorize]
         public ActionResult Index()
         {
             return View(db.Customer.ToList());

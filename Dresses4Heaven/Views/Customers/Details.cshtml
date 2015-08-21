@@ -1,10 +1,12 @@
 ﻿@model Dresses4Heaven.Models.Customer
+@* @model IEnumerable<MvcMusicStore.Models.Genre>*@
 
 <!--
 using Dresses4Heaven.Models.Order
     -->
 @{
     ViewBag.Title = "Details";
+    @* WebGrid grid = new WebGrid(source: Model, canSort: false);*@
 }
 
 
@@ -95,7 +97,8 @@ using Dresses4Heaven.Models.Order
         <table class="table">
             <tr>
                 <th>Event Title</th>
-                <th>EventType</th>
+                <th>EventID</th>
+                
             </tr>
             @foreach (var item in Model.Orders)
             {
@@ -103,74 +106,16 @@ using Dresses4Heaven.Models.Order
                     <td>
                         @Html.DisplayFor(modelItem => item.Event.Title)
                     </td>
+                    
                     <td>
-                        @Html.DisplayFor(modelItem => item.OrderType)
+                        @Html.DisplayFor(modelItem => item.EventID)
                     </td>
+                    
                     <td>
-                        @*@Html.ActionLink("Edit", "OrderEdit") |
-                            @Html.ActionLink("Details", "OrderDetails", new { OrderID = item.OrderID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })*@
+                        @Html.ActionLink("Edit", "../Orders/Edit", new { id = item.OrderID }) |
+                            @Html.ActionLink("Details", "../Orders/Details", new { id = item.OrderID }) |
+                            @Html.ActionLink("Delete", "../Orders/Delete", new { id = item.OrderID })
 
-
-                        <div class="panel-group" id="accordion">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion"
-                                           href="#collapseOne">
-                                            Click me to exapand. Click me again to collapse.Section 1
-                                        </a>
-                                    </h4>
-                                </div>
-
-                                <div id="collapseOne" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                        vice lomo.
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!--Test end of div-->
-
-                            <!--
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion"
-                                           href="#collapseTwo">
-                                            Click me to exapand. Click me again to collapse.Section 2
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                        vice lomo.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion"
-                                           href="#collapseThree">
-                                            Click me to exapand. Click me again to collapse.Section 3
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                        vice lomo.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        -->
 
                     </td>
                 </tr>
@@ -178,128 +123,10 @@ using Dresses4Heaven.Models.Order
         </table>
 
     </div>
-    <!--
-    <div class="col-lg-10">
-        <h3>Order Details</h3>
 
-        <table class="table">
-            <tr>
-                <th>Event Title</th>
-                <th>EventType</th>
-            </tr>
-            @foreach (var item in Model.Orders)
-
-            {
-                <tr>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.FullName)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.Event.Title)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.Event.Title)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.StaffID)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.StaffID)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.OrderType)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.OrderType)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.PaymentType)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.PaymentType)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.OrderDate)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.OrderDate)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.DeadlineDate)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.DeadlineDate)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.OrderPrice)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.OrderPrice)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.DepositAmt)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.DepositAmt)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.Depositpaid)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.Depositpaid)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.AmntDue)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.AmntDue)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(modelItem => item.PaidInFull)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.PaidInFull)
-                    </dd>
-                    <td>
-                        <p>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
-                            @Html.ActionLink("Back to List", "Index")
-                        </p>
-                    </td>
-                </tr>
-            }
-        </table>
-
-    </div>-->
 </div> <!-- end of container-->
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-     @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </p>
 </p>

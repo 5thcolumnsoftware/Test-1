@@ -8,6 +8,7 @@ namespace Dresses4Heaven.Controllers
 {
     public class HomeController : Controller
     {
+        //[Authorize]
         public ActionResult Index()
         {
             return View();
@@ -19,7 +20,8 @@ namespace Dresses4Heaven.Controllers
 
             return View();
         }
-
+        
+        //[Authorize]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
