@@ -55,9 +55,11 @@ namespace Dresses4Heaven.Controllers
             {
                 db.Customer.Add(customer);
                 db.SaveChanges();
-                //int primaryKey = news.NewsID;
+                //http://forums.asp.net/t/1804159.aspx?Master+Detail+CRUD
+                int ThisKey = customer.ID;
                 //return RedirectToAction("Index");
-                return RedirectToAction("../Events/Create");
+                //return RedirectToAction("Delete", new { id = id, errorinsavechanges = true});
+                return RedirectToAction("CustDetailsPlusOne", new { CustomerID = ThisKey });
             }
 
             return View(customer);
