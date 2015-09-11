@@ -6,6 +6,7 @@ namespace Dresses4Heaven.Models
     public abstract class Person
     {
         public int ID { get; set; }
+        
         [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
         [Required]
         [StringLength(50)]

@@ -11,117 +11,107 @@ using Dresses4Heaven.Models;
 
 namespace Dresses4Heaven.Controllers
 {
-    public class OrdersController : Controller
+    public class GuunasController : Controller
     {
         private DressesContext db = new DressesContext();
 
-        // GET: Orders
+        // GET: Guunas
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer).Include(o => o.Event);
-            return View(orders.ToList());
+            return View(db.Guunas.ToList());
         }
 
-        // GET: Orders/Details/5
+        // GET: Guunas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
+            Guuna guuna = db.Guunas.Find(id);
+            if (guuna == null)
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View(guuna);
         }
 
-        // GET: Orders/Create
+        // GET: Guunas/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName");
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title");
             return View();
         }
 
-        // POST: Orders/Create
+        // POST: Guunas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,EventID,CustomerID,StaffID,OrderType,PaymentType,OrderDate,DeadlineDate,OrderPrice,DepositAmt,Depositpaid,AmntDue,PaidInFull")] Order order)
+        public ActionResult Create([Bind(Include = "GuunaID,dressDesc,DressNotes,UnitPrice,UKSize,Shoulders,Bust,Waist,Hips,HollowToHem,Sleeve,Trail,FittingDate")] Guuna guuna)
         {
-            order.OrderDate = DateTime.Now;
             if (ModelState.IsValid)
             {
-                db.Orders.Add(order);
+                db.Guunas.Add(guuna);
                 db.SaveChanges();
-                return RedirectToAction("../Guunas/Create");
+                return RedirectToAction("Index");
             }
 
-            //ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName", order.CustomerID);
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title", order.EventID);
-            return View(order);
+            return View(guuna);
         }
 
-        // GET: Orders/Edit/5
+        // GET: Guunas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
+            Guuna guuna = db.Guunas.Find(id);
+            if (guuna == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName", order.CustomerID);
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title", order.EventID);
-            return View(order);
+            return View(guuna);
         }
 
-        // POST: Orders/Edit/5
+        // POST: Guunas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,EventID,CustomerID,StaffID,OrderType,PaymentType,OrderDate,DeadlineDate,OrderPrice,DepositAmt,Depositpaid,AmntDue,PaidInFull")] Order order)
+        public ActionResult Edit([Bind(Include = "GuunaID,dressDesc,DressNotes,UnitPrice,UKSize,Shoulders,Bust,Waist,Hips,HollowToHem,Sleeve,Trail,FittingDate")] Guuna guuna)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
+                db.Entry(guuna).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName", order.CustomerID);
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title", order.EventID);
-            return View(order);
+            return View(guuna);
         }
 
-        // GET: Orders/Delete/5
+        // GET: Guunas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
+            Guuna guuna = db.Guunas.Find(id);
+            if (guuna == null)
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View(guuna);
         }
 
-        // POST: Orders/Delete/5
+        // POST: Guunas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+            Guuna guuna = db.Guunas.Find(id);
+            db.Guunas.Remove(guuna);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

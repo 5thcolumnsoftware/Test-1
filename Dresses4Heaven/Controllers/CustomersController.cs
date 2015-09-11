@@ -50,11 +50,14 @@ namespace Dresses4Heaven.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,IntroDate,LastName,FirstName,PersAddress1,PersAddress2,PersAddress3,EmailAddress,PhoneNum")] Customer customer)
         {
+            customer.IntroDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Customer.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //int primaryKey = news.NewsID;
+                //return RedirectToAction("Index");
+                return RedirectToAction("../Events/Create");
             }
 
             return View(customer);

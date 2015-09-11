@@ -11,117 +11,109 @@ using Dresses4Heaven.Models;
 
 namespace Dresses4Heaven.Controllers
 {
-    public class OrdersController : Controller
+    public class EventsController : Controller
     {
         private DressesContext db = new DressesContext();
 
-        // GET: Orders
+        // GET: Events
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer).Include(o => o.Event);
-            return View(orders.ToList());
+            return View(db.Events.ToList());
         }
 
-        // GET: Orders/Details/5
+        // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View(@event);
         }
 
-        // GET: Orders/Create
+        // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName");
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title");
             return View();
         }
 
-        // POST: Orders/Create
+        // POST: Events/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,EventID,CustomerID,StaffID,OrderType,PaymentType,OrderDate,DeadlineDate,OrderPrice,DepositAmt,Depositpaid,AmntDue,PaidInFull")] Order order)
+        public ActionResult Create([Bind(Include = "EventID,CustomerID,Title,EventType,EventAddress1,EventAddress2,EventAddress3,EventDate")] Event @event)
         {
-            order.OrderDate = DateTime.Now;
             if (ModelState.IsValid)
             {
-                db.Orders.Add(order);
+                db.Events.Add(@event);
                 db.SaveChanges();
-                return RedirectToAction("../Guunas/Create");
+                //return RedirectToAction("Index");
+                return RedirectToAction("../Orders/Create");
+
             }
 
-            //ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName", order.CustomerID);
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title", order.EventID);
-            return View(order);
+            return View(@event);
         }
 
-        // GET: Orders/Edit/5
+        // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName", order.CustomerID);
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title", order.EventID);
-            return View(order);
+            return View(@event);
         }
 
-        // POST: Orders/Edit/5
+        // POST: Events/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,EventID,CustomerID,StaffID,OrderType,PaymentType,OrderDate,DeadlineDate,OrderPrice,DepositAmt,Depositpaid,AmntDue,PaidInFull")] Order order)
+        public ActionResult Edit([Bind(Include = "EventID,CustomerID,Title,EventType,EventAddress1,EventAddress2,EventAddress3,EventDate")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
+                db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.CustomerID = new SelectList(db.Customer, "ID", "LastName", order.CustomerID);
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "Title", order.EventID);
-            return View(order);
+            return View(@event);
         }
 
-        // GET: Orders/Delete/5
+        // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
-            if (order == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View(@event);
         }
 
-        // POST: Orders/Delete/5
+        // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+            Event @event = db.Events.Find(id);
+            db.Events.Remove(@event);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

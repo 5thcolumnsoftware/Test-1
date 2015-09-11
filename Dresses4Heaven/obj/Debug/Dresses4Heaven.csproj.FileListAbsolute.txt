@@ -129,7 +129,6 @@ K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\Microsoft.Owin.Security.OAuth.x
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\Microsoft.Owin.Security.Google.xml
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\Microsoft.Owin.Security.Twitter.xml
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-K:\College\MVC\Dresses4Heaven\Dresses4Heaven\obj\Debug\Dresses4Heaven.csprojResolveAssemblyReference.cache
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\obj\Debug\Dresses4Heaven.dll
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\obj\Debug\Dresses4Heaven.pdb
 K:\College\MVC\Dresses4Heaven\Dresses4Heaven\bin\SendGrid.SmtpApi.dll

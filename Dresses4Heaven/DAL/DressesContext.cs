@@ -21,5 +21,7 @@ namespace Dresses4Heaven.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<Dresses4Heaven.Models.Guuna> Guunas { get; set; }
     }
 }

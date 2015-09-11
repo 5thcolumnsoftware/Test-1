@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Dresses4Heaven.Models.Guuna>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dressDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DressNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UKSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shoulders)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bust)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Waist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hips)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HollowToHem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sleeve)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FittingDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dressDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DressNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UKSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shoulders)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bust)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Waist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hips)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HollowToHem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sleeve)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FittingDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GuunaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GuunaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GuunaID })
+        </td>
+    </tr>
+}
+
+</table>

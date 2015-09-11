@@ -11,14 +11,14 @@ namespace Dresses4Heaven.Models
 
     public enum PaymentType
     {
-        A, B, C, D, F
+        Visa, Mastercard, Cash
     }
 
     public class Order
     {
         public int OrderID { get; set; }
         public int EventID { get; set; }
-        public int CustomerID { get; set; }
+        //public int CustomerID { get; set; }
         public int StaffID { get; set; }
         public OrderType? OrderType { get; set; }
 

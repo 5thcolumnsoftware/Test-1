@@ -8,6 +8,8 @@ namespace Dresses4Heaven.Models
 {
     public class Guuna
     {
+        public int GuunaID { get; set; }
+        public int OrderID { get; set; }
         public string dressDesc { get; set; }
         public string DressNotes { get; set; }
         public int UnitPrice { get; set; }

@@ -12,8 +12,9 @@ namespace Dresses4Heaven.Models
     }
     public class Event
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EventID { get; set; }
+        public int CustomerID { get; set; }
         public string Title { get; set; }
         public EventType? EventType { get; set; }
         //public string Location { get; set; }

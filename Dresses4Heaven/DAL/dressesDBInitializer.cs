@@ -8,8 +8,8 @@ using Dresses4Heaven.Models;
 namespace Dresses4Heaven.DAL
 {
 
-    //public class dressesDBInitializer : System.Data.Entity.DropCreateDatabaseAlways<DressesContext>
-    public class dressesDBInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DressesContext>
+    public class dressesDBInitializer : System.Data.Entity.DropCreateDatabaseAlways<DressesContext>
+    //public class dressesDBInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DressesContext>
     {
         protected override void Seed(DressesContext context)
         {
@@ -53,58 +53,16 @@ namespace Dresses4Heaven.DAL
                 }
                 throw exception;
             }
-
-            
-            var Orders = new List<Order>
-            {
-            new Order{CustomerID=1,EventID=1050,OrderType=OrderType.A,OrderDate=DateTime.Parse("2005-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=1,EventID=4022,OrderType=OrderType.C,OrderDate=DateTime.Parse("2005-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=1,EventID=4041,OrderType=OrderType.B,OrderDate=DateTime.Parse("2006-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=2,EventID=1045,OrderType=OrderType.B,OrderDate=DateTime.Parse("2010-07-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=2,EventID=3141,OrderType=OrderType.F,OrderDate=DateTime.Parse("2009-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=2,EventID=2021,OrderType=OrderType.F,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=3,EventID=1050,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=4,EventID=1050,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=4,EventID=4022,OrderType=OrderType.F,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=5,EventID=4041,OrderType=OrderType.C,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=6,EventID=1045,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
-            new Order{CustomerID=7,EventID=3141,OrderType=OrderType.A,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")}
-            };
-            Orders.ForEach(s => context.Orders.Add(s));
-            //context.SaveChanges();
-
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception exception = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}:{1}",
-                            validationErrors.Entry.Entity.ToString(),
-                            validationError.ErrorMessage);
-
-                        //create a new exception inserting the current one
-                        //as the InnerException
-                        exception = new InvalidOperationException(message, exception);
-                    }
-                }
-                throw exception;
-            }
-
+            /********************************************************************************/
             var Events = new List<Event>
             {
-            new Event{EventID=1050,Title="John's Christning",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=4022,Title="Marie's Wedding",EventAddress1="kljh",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=4041,Title="Abigail's Birthday",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=1045,Title="Colaiste Ita Debs",EventAddress1="twe",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=3141,Title="Sean's Wedding",EventAddress1="gfds",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=2021,Title="Colaiste Mhuire Debs",EventAddress1="mnv",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
-            new Event{EventID=2042,Title="Mary's Wedding",EventAddress1="bvc",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")}
+            new Event{CustomerID=7,Title="John's Christning",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{CustomerID=6,Title="Marie's Wedding",EventAddress1="kljh",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{CustomerID=5,Title="Abigail's Birthday",EventAddress1="jhg",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{CustomerID=1,Title="Colaiste Ita Debs",EventAddress1="twe",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{CustomerID=2,Title="Sean's Wedding",EventAddress1="gfds",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{CustomerID=3,Title="Colaiste Mhuire Debs",EventAddress1="mnv",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")},
+            new Event{CustomerID=4,Title="Mary's Wedding",EventAddress1="bvc",EventAddress2="Temp Area",EventAddress3="Temp Town",EventDate=DateTime.Parse("2005-09-01")}
             };
             Events.ForEach(s => context.Events.Add(s));
             //context.SaveChanges();
@@ -131,12 +89,54 @@ namespace Dresses4Heaven.DAL
                 }
                 throw exception;
             }
+
+            /**************************************************************************/
+            var Orders = new List<Order>
+            {
+            new Order{EventID=1,OrderType=OrderType.A,OrderDate=DateTime.Parse("2005-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=1,OrderType=OrderType.C,OrderDate=DateTime.Parse("2005-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=1,OrderType=OrderType.B,OrderDate=DateTime.Parse("2006-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=2,OrderType=OrderType.B,OrderDate=DateTime.Parse("2010-07-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=2,OrderType=OrderType.F,OrderDate=DateTime.Parse("2009-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=2,OrderType=OrderType.F,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=3,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=4,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=4,OrderType=OrderType.F,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=5,OrderType=OrderType.C,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=6,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")},
+            new Order{EventID=7,OrderType=OrderType.A,OrderDate=DateTime.Parse("2008-09-01"),DeadlineDate=DateTime.Parse("2016-09-01")}
+            };
+            Orders.ForEach(s => context.Orders.Add(s));
+            //context.SaveChanges();
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception exception = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+
+                        //create a new exception inserting the current one
+                        //as the InnerException
+                        exception = new InvalidOperationException(message, exception);
+                    }
+                }
+                throw exception;
+            }
             
 
-
+            /**************************************************************************/
             var staffList = new List<Staff>
             {
-                new Staff{ID=1001,FirstName="Justin",LastName="Time",HireDate=DateTime.Parse("2005-09-01"),PersAddress1="28 NewTemp Street",PersAddress2="Temp Area",PersAddress3="Temp Town",AccessLevel=AccessLevel.A},
+                new Staff{ID=1001,FirstName="Justin",LastName="Brown",HireDate=DateTime.Parse("2005-09-01"),PersAddress1="28 NewTemp Street",PersAddress2="Temp Area",PersAddress3="Temp Town",AccessLevel=AccessLevel.A},
                 new Staff{ID=1001,FirstName="Michael",LastName="Quinn",HireDate=DateTime.Parse("2005-09-01"),PersAddress1="46 NewTemp Street",PersAddress2="Temp Area",PersAddress3="Temp Town",AccessLevel=AccessLevel.B}
             };
             staffList.ForEach(s => context.Staffs.Add(s));
